@@ -2,10 +2,14 @@ from sqlalchemy import Column, INTEGER, Integer, String, Text, ForeignKey,Boolea
 from sqlalchemy.orm import relationship
 from sqlalchemy_utils.types import Choice
 from database import Base
+from sqlalchemy import Column, Integer, String, Boolean
+from database import Base
+
+
 
 
 class User(Base):
-    __table_name__ = "user"
+    __tablename__ = "user"
 
     id = Column(Integer, primary_key=True)
     first_name = Column(String(20), nullable=True)
@@ -23,7 +27,7 @@ class User(Base):
 
 class Category(Base):
 
-    __table_name__ = 'category'
+    __tablename__ = 'category'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
@@ -32,7 +36,7 @@ class Category(Base):
 
 class Product(Base):
 
-    __table_name__ = 'product'
+    __tablename__ = 'product'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
@@ -44,7 +48,7 @@ class Product(Base):
 
 class Order(Base):
 
-    __table_name__ ='orders'
+    __tablename__ ='orders'
 
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("user.id"))
