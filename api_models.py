@@ -3,29 +3,36 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-
 class Item(BaseModel):
     name: str
     description: str | None = None
-    price = float
+    price: float
     tax: float | None = None
     tags: list[str] = []
 
 @app.get("/")
-async def indes():
+async def index():
     return {
         "message": "index_api"
     }
-
 
 @app.post("/items/")
 async def create_item(item: Item) -> Item:
     return item
 
-
 @app.get("/items/")
-async def read_items() -> list[Item]:
+async def read_items() -> list:
     return [
-        Item(name="Portal Gun", price=42.0),
-        Item(name="Plumbus", price=32.0),
+        {
+            "name": "John",
+            "password": "john123"
+        },
+        {
+            "name": "hondamir",
+            "password": "j23"
+        },       {
+            "name": "John",
+            "password": "jo23"
+        }
     ]
+

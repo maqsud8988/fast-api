@@ -16,6 +16,19 @@ async def intro():
         "message": "this is user page"
     }
 
+@app.get("/items")
+async def index():
+    return {
+        "message": "this is items page"
+    }
+
+
+@app.post("/items")
+async def index():
+    return {
+        "message": "this is items request"
+    }
+
 @app.get("/user/{id}")
 async def intro(id: int):
     return {
