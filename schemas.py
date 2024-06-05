@@ -2,52 +2,60 @@ from pydantic import BaseModel
 from typing import Optional
 
 
-class RegisterModel(BaseModel):
+class Registration(BaseModel):
     id: Optional[int]
     first_name: str
     last_name: str
     username: str
     email: str
     password: str
-    is_staff: Optional[bool]
     is_active: Optional[bool]
+    is_staff: Optional[bool]
 
-    # class Config:
-    #     orm_mode = True,
-    #     schema_extra = {
-    #         "example": {
-    #             "id": 1,
-    #             "first_name": "John",
-    #             "last_name": "Smith",
-    #             "username": "pipsudo",
-    #             "password": "******",
-    #             "email": "example@gamil.com",
-    #             "is_staff": True,
-    #             "is_active": True
-    #         }
-    #     }
+    class Config:
+        schema_extra = {
+            "example": {
+                "id": 1,
+                "first_name": "maqsud",
+                "last_name": "sunnatov",
+                "username": "maqsud8988",
+                "email": "m@gmail.com",
+                "password": "****",
+                "is_active": True,
+                "is_staff": True
+            }
+        }
 
-class LoginModel(BaseModel):
+
+class Login(BaseModel):
     username: str
     password: str
 
 
-class CategoryModel(BaseModel):
+class CategoryM(BaseModel):
     id: Optional[int]
     name: str
 
-class ProductModel(BaseModel):
+
+class ProductM(BaseModel):
     id: Optional[int]
     name: str
     description: str
-    price: float    
+    price: float
     category_id: Optional[int]
+    count: int
 
 
-class OrderModel(BaseModel):
+class OrderM(BaseModel):
     id: Optional[int]
     user_id: int
     product_id: int
+    order_status: str
+    count: int
+
+
+class OrderUserM(BaseModel):
+    username: str
 
 
 
